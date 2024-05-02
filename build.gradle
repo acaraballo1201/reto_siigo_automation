@@ -1,75 +1,56 @@
-repositories {
-    jcenter()
-    mavenLocal()
-}
 buildscript {
     repositories {
-        mavenCentral()
         maven {
             url "https://plugins.gradle.org/m2/"
         }
     }
     dependencies {
-        classpath("net.serenity-bdd:serenity-gradle-plugin:2.0.70")
-        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.0"
+        classpath "net.serenity-bdd:serenity-gradle-plugin:3.3.10"
+        classpath "net.serenity-bdd:serenity-single-page-report:3.3.10"
     }
 }
 
-apply plugin: 'java'
-apply plugin: 'idea'
-apply plugin: 'eclipse'
-apply plugin: 'net.serenity-bdd.aggregator'
-apply plugin: 'org.sonarqube'
-
-
-tasks.withType(JavaCompile) {
-    options.encoding = "UTF-8"
+plugins {
+    id "java"
+    id "idea"
 }
 
-test {systemProperties = System.properties}
 
-tasks.withType(Test) {
-    systemProperty "file.encoding", "UTF-8"
+repositories {
+    mavenCentral()
+    mavenLocal()
 }
+
+apply plugin: "net.serenity-bdd.serenity-gradle-plugin"
+
 
 ext {
-    serenityVersion = '2.0.70'
-    serenityCucumberVersion = '1.9.45'
-}
-
-sonarqube {
-    properties {
-        property "sonar.host.url", "http://localhost:9000"
-        property "sonar.jdbc.username", "admin"
-        property "sonar.jdbc.password", "admin"
-        property "sonar.projectKey", "SIIGO"
-        property "sonar.projectName", "SIIGO"
-        property "sonar.projectVersion", "1.0"
-        property "sonar.sources", "src/main"
-        property "sonar.test", "src/test"
-    }
+    serenityCoreVersion = '3.7.0'
 }
 
 dependencies {
-    testImplementation 'junit:junit:4.13.1'
-    testImplementation 'org.assertj:assertj-core:3.13.2'
-    testImplementation 'org.slf4j:slf4j-api:1.7.2'
-    testImplementation 'org.slf4j:slf4j-log4j12:1.7.2'
-    implementation "net.serenity-bdd:serenity-core:2.0.70"
-    implementation "net.serenity-bdd:serenity-junit:2.0.70"
-    implementation "net.serenity-bdd:serenity-screenplay:2.0.70"
-    implementation "net.serenity-bdd:serenity-cucumber:1.9.45"
-    implementation "net.serenity-bdd:serenity-screenplay-webdriver:2.0.70"
-    implementation "net.serenity-bdd:serenity-ensure:2.0.70"
-    implementation "net.serenity-bdd:serenity-rest-assured:2.0.70"
-    implementation "io.appium:java-client:7.0.0"
-    implementation "org.apache.commons:commons-lang3:3.0"
-    implementation "com.google.zxing:javase:3.4.1"
-    implementation 'javax.mail:mail:1.5.0-b01'
-    implementation 'org.json:json:20210307'
-    implementation 'com.google.api-client:google-api-client:1.23.0'
-    implementation 'com.google.oauth-client:google-oauth-client-jetty:1.23.0'
-    implementation 'com.google.apis:google-api-services-gmail:v1-rev83-1.23.0'
-    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.10'
+    implementation group: 'org.slf4j', name: 'slf4j-reload4j', version: '2.0.7'
+    implementation 'org.apache.logging.log4j:log4j-core:2.20.0'
+    implementation "net.serenity-bdd:serenity-core:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-cucumber:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-screenplay:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-screenplay-webdriver:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-screenplay-rest:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-ensure:${serenityCoreVersion}"
+    implementation group: 'org.antlr', name: 'ST4', version: '4.3.4'
+    implementation 'org.apache.poi:poi-ooxml:5.2.3'
+    implementation 'org.mongodb:mongodb-driver-sync:4.9.1'
+    testImplementation 'com.intuit.karate:karate-junit4:1.4.0.RC3'
+    testImplementation 'com.intuit.karate:karate-netty:0.9.3.RC1'
+    testImplementation "com.intuit.karate:karate-apache:0.9.6"
+    testImplementation 'io.github.bonigarcia:webdrivermanager:5.5.3'
+    annotationProcessor 'org.projectlombok:lombok:1.18.26'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.26'
 }
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
 gradle.startParameter.continueOnFailure = true
+test.finalizedBy(aggregate)
