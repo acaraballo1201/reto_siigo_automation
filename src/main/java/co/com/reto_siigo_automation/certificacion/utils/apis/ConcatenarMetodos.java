@@ -2,9 +2,10 @@ package co.com.reto_siigo_automation.certificacion.utils.apis;
 
 public enum ConcatenarMetodos {
     LISTA_COMPLETA_DE_EMPLEADOS("/api/users/"),
-    EMPLEADO_ESPECIFICO("/api/users/%s"),
-    ELIMINAR_EMPLEADO("/api/users/delete/%s"),
-    CREAR_EMPLEADO("/api/users/create/");
+    USUARIO_ESPECIFICO("/api/users/%s"),
+    ELIMINAR_USUARIO("/api/users/%s"),
+    ACTUALIZAR_USUARIO("/api/users/%s"),
+    CREAR_USUARIO("/api/users/create/");
 
     private final String uri;
 

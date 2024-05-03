@@ -1,8 +1,6 @@
 package co.com.reto_siigo_automation.certificacion.stepDefinitions.api;
 
-import co.com.reto_siigo_automation.certificacion.interactions.apis.ConGetListaCompletaDeEmpleados;
-import co.com.reto_siigo_automation.certificacion.interactions.apis.ConPostCrearUsuario;
-import co.com.reto_siigo_automation.certificacion.interactions.apis.ConsultarEmpleadoEspecifico;
+import co.com.reto_siigo_automation.certificacion.interactions.apis.*;
 import co.com.reto_siigo_automation.certificacion.questions.apis.ValidacionStatusCodeResponse;
 import co.com.reto_siigo_automation.certificacion.questions.apis.ValidacionStatusResponse;
 import co.com.reto_siigo_automation.certificacion.utils.apis.GestionarDatos;
@@ -37,8 +35,24 @@ public class ApisStepDefinitions {
     }
 
     @Cuando("el realiza el Consumo del servicio para la creacion")
-    public void condumirServicioDeCreacion() {
+    public void consumirServicioDeCreacion() {
         theActorInTheSpotlight().attemptsTo(ConPostCrearUsuario.enApi());
+    }
+
+    @Cuando("el realiza el Consumo del servicio para el registro")
+    public void consumirServicioDeRegistro() {
+        theActorInTheSpotlight().attemptsTo(ConPostRegistrarUsuario.enApi());
+    }
+
+    @Cuando("el Consume el servicio para actualizar informacion de usuario {int}")
+    public void consumirServicioDeUpdate(int empleado) {
+        Data.guardarDatos("empleado", String.valueOf(empleado));
+        theActorInTheSpotlight().attemptsTo(ConPutActualizarUsuario.enApi());
+    }
+    @Cuando("el Consume el servicio para Eliminar a un usuario {int}")
+    public void consumirServicioDeDelete(int empleadoBorrar) {
+        Data.guardarDatos("empleado", String.valueOf(empleadoBorrar));
+        theActorInTheSpotlight().attemptsTo(ConDeleteEliminarEmpleado.enApi());
     }
 
     @Y("el esperara recibir un mensaje de stado {string}")

@@ -9,15 +9,14 @@ import net.serenitybdd.screenplay.rest.interactions.Post;
 import org.junit.Assert;
 
 import static co.com.reto_siigo_automation.certificacion.utils.apis.ConcatenarMetodos.CREAR_USUARIO;
-import static co.com.reto_siigo_automation.certificacion.utils.apis.enums.EnumsTransversal.JOB;
-import static co.com.reto_siigo_automation.certificacion.utils.apis.enums.EnumsTransversal.NAME;
+import static co.com.reto_siigo_automation.certificacion.utils.apis.enums.EnumsTransversal.*;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
-public class ConPostCrearUsuario implements Interaction {
+public class ConPostRegistrarUsuario implements Interaction {
     GestionarDatos Data = new GestionarDatos();
 
-    public static ConPostCrearUsuario enApi() {
-        return instrumented(ConPostCrearUsuario.class);
+    public static ConPostRegistrarUsuario enApi() {
+        return instrumented(ConPostRegistrarUsuario.class);
     }
 
     @Override
@@ -29,8 +28,8 @@ public class ConPostCrearUsuario implements Interaction {
                                 requestSpecification
                                         .contentType(ContentType.JSON)
                                         .body("{" +
-                                                '\"' + NAME.getLlave() + '\"' + ":" + '\"' + NAME.getValor() + '\"' + "," +
-                                                '\"' + JOB.getLlave() + '\"' + ":" + '\"' + JOB.getValor() + '\"' +
+                                                '\"' + EMAIL.getLlave() + '\"' + ":" + '\"' + EMAIL.getValor() + '\"' + "," +
+                                                '\"' + PASSWORD.getLlave() + '\"' + ":" + '\"' + PASSWORD.getValor() + '\"' +
                                                 "}"
                                         )));
         Assert.assertEquals(201, SerenityRest.lastResponse().statusCode());

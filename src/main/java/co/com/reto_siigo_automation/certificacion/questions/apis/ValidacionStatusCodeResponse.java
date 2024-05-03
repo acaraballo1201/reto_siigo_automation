@@ -26,10 +26,8 @@ public class ValidacionStatusCodeResponse implements Question<Boolean> {
 
     @Override
     public Boolean answeredBy(Actor actor) {
-        String  statusJson = String.valueOf(SerenityRest.lastResponse().jsonPath().getString(CAMPO_BODY.toString()));
         Assert.assertEquals(statusCode, SerenityRest.lastResponse().statusCode());
         return statusCodeResponse;
-
     }
 
 }

@@ -1,16 +1,12 @@
 #language:es
 
-@Login
+Característica: Actualizar informacion de usuario
+  Yo como aministrador
+  quiero consumir los servicios del metodo PUT
+  para crear usuarios
 
- Característica: :  Hu login
-  Como usuario de la aplicacion web SIIGO
-  Quiero realizar el logueo en el sitio
-  Para verificar el funcionamiento de sus componentes
-
-  @Loggin_1
-  Escenario: Auntenticacion Exitosa
-    Dado que "Andres" ingresa con el usuario: "admin@siigoautomationqa.com" y la clave: "$22g0QA321"
-    Cuando el ingresa al menu de crear clientes
-    Entonces el podra observar el catalogo de servicio
-
+  Escenario: Actualizar informacion por metodo Put de manera Exitosa
+    Dado que Andres usa el servicio "REQRES"
+    Cuando el Consume el servicio para actualizar informacion de usuario 2
+    Entonces el esperara un codigo de estado 200
 

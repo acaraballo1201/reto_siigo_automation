@@ -8,7 +8,7 @@ import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.rest.interactions.Get;
 import org.junit.Assert;
 
-import static co.com.reto_siigo_automation.certificacion.utils.apis.ConcatenarMetodos.EMPLEADO_ESPECIFICO;
+import static co.com.reto_siigo_automation.certificacion.utils.apis.ConcatenarMetodos.USUARIO_ESPECIFICO;
 
 public class ConsultarEmpleadoEspecifico implements Interaction {
     GestionarDatos Data = new GestionarDatos();
@@ -19,7 +19,8 @@ public class ConsultarEmpleadoEspecifico implements Interaction {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        actor.attemptsTo(Get.resource(String.format(EMPLEADO_ESPECIFICO.toString(),Data.obtenerDatos("empleado")))
+        actor.attemptsTo(
+                Get.resource(String.format(USUARIO_ESPECIFICO.toString(),Data.obtenerDatos("empleado")))
                 .with(requestSpecification -> requestSpecification));
 
         Assert.assertEquals(200, SerenityRest.lastResponse().statusCode());

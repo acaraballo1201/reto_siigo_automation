@@ -3,7 +3,10 @@ package co.com.reto_siigo_automation.certificacion.utils.apis.enums;
 public enum EnumsTransversal {
 
   NAME("name", "morpheus"),
-  JOB("job", "leader");
+  JOB("job", "leader"),
+  NEW_JOB("job", "zion resident"),
+  EMAIL("email", "eve.holt@reqres.in"),
+  PASSWORD("password", "pistol");
 
   private final String llave;
   private final String valor;
