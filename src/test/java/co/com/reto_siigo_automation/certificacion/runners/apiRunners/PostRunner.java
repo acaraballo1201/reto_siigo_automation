@@ -6,10 +6,10 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "src/test/resources/features/auto_apis/get.feature",
+        features = "src/test/resources/features/auto_apis/post.feature",
         glue = "co/com/reto_siigo_automation/certificacion/stepDefinitions",
         snippets = CucumberOptions.SnippetType.CAMELCASE)
 
-public class GetRunner {
+public class PostRunner {
 
 }

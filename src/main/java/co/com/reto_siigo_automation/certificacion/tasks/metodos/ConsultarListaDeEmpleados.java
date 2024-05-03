@@ -20,7 +20,6 @@ public class ConsultarListaDeEmpleados implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        actor.attemptsTo(ConsumoServicios.conGetEmpleados());
         assertThat(Data.obtenerDatos("statusCode"),equalTo("200"));
         Data.guardarDatos("statusCode", String.valueOf(SerenityRest.lastResponse().statusCode()));
         Data.guardarDatos("status", SerenityRest.lastResponse().jsonPath().getString("status"));
