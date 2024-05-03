@@ -39,6 +39,7 @@ public class TestsUnits {
         .body("data[1].first_name", equalTo("Janet"));
   }
 
+
   @Test
   public void testPostUser() {
     baseURI = "https://reqres.in/api";
