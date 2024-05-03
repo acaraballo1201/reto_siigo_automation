@@ -1,4 +1,4 @@
-package co.com.reto_siigo_automation.certificacion.stepDefinitions.authentication;
+package co.com.reto_siigo_automation.certificacion.stepDefinitions.web.authentication;
 
 import co.com.reto_siigo_automation.certificacion.exceptions.MenuSiigoNoVisualizadoException;
 import co.com.reto_siigo_automation.certificacion.interactions.AutenticacionPoo;

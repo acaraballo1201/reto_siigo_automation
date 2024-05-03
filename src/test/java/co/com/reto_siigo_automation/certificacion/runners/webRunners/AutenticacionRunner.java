@@ -1,4 +1,4 @@
-package co.com.reto_siigo_automation.certificacion.runners;
+package co.com.reto_siigo_automation.certificacion.runners.webRunners;
 
 import io.cucumber.junit.CucumberOptions;
 import net.serenitybdd.cucumber.CucumberWithSerenity;
