@@ -5,6 +5,7 @@ public enum ConcatenarMetodos {
     USUARIO_ESPECIFICO("/api/users/%s"),
     ELIMINAR_USUARIO("/api/users/%s"),
     ACTUALIZAR_USUARIO("/api/users/%s"),
+    REGISTRAR_USUARIO("/api/register"),
     CREAR_USUARIO("/api/users/create/");
 
     private final String uri;
