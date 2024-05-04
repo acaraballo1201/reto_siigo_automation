@@ -1,6 +1,5 @@
 package co.com.reto_siigo_automation.certificacion.interactions.apis;
 
-import co.com.reto_siigo_automation.certificacion.utils.apis.GestionarDatos;
 import net.serenitybdd.rest.SerenityRest;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Interaction;

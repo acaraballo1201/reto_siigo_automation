@@ -1,6 +1,5 @@
 package co.com.reto_siigo_automation.certificacion.questions;
 
-import co.com.reto_siigo_automation.certificacion.interactions.esperas.EsperarCarga;
 import co.com.reto_siigo_automation.certificacion.interactions.transversales.ClickInvisible;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;

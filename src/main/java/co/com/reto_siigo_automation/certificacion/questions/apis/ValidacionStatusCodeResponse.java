@@ -6,9 +6,6 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 import org.junit.Assert;
 
-import static co.com.reto_siigo_automation.certificacion.utils.apis.enums.EnumsRutasjson.CAMPO_BODY;
-import static org.hamcrest.MatcherAssert.assertThat;
-
 public class ValidacionStatusCodeResponse implements Question<Boolean> {
 
     GestionarDatos Data = new GestionarDatos();
