@@ -12,7 +12,7 @@ Este proyecto es creado para realizar pruebas funcionales a la aplicacion de sii
 ## Prerrequisitos 📋
  
 - IDE instalado
-- JDK 1.8
+- JDK 17
 - Gradle 7.0 o superior
 - GIT
  
