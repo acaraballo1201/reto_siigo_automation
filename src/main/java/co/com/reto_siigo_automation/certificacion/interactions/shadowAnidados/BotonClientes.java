@@ -4,11 +4,14 @@ import co.com.reto_siigo_automation.certificacion.interactions.esperas.Esperar;
 import lombok.SneakyThrows;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Interaction;
+import net.serenitybdd.screenplay.Task;
 import net.thucydides.core.annotations.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 
+import static co.com.reto_siigo_automation.certificacion.utils.web.EnumDomBtnClientes.SEARCH_CONTEXT_BTN_CLIENTES;
+import static co.com.reto_siigo_automation.certificacion.utils.web.EnumDomBtnClientes.SHADOW_1_BTN_CLIENTES;
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
 public class BotonClientes implements Interaction {
@@ -18,11 +21,11 @@ public class BotonClientes implements Interaction {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(Esperar.unTiempo(10000));
-        //This Element is inside single shadow DOM.
+        Task.where("Este Elemento esta dentro de otro shadow root");
         Thread.sleep(1000);
-        SearchContext shadow = getDriver().findElement(By.cssSelector(".data-siigo-five9.hydrated")).getShadowRoot();
+        SearchContext shadow = getDriver().findElement(By.cssSelector(SEARCH_CONTEXT_BTN_CLIENTES.toString())).getShadowRoot();
         Thread.sleep(1000);
-        shadow.findElement(By.cssSelector(" div:nth-child(1) > header:nth-child(3) > nav:nth-child(1) > div:nth-child(1) > div:nth-child(2) > ul:nth-child(1) > li:nth-child(5) > siigo-header-create-button-dropdown:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > li:nth-child(2) > div:nth-child(1) > a:nth-child(2)")).click();
+        shadow.findElement(By.cssSelector(SHADOW_1_BTN_CLIENTES.toString())).click();
         Thread.sleep(5000);
 
 

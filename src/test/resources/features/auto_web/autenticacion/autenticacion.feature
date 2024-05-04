@@ -12,5 +12,3 @@
     Dado que "Andres" ingresa con el usuario: "admin@siigoautomationqa.com" y la clave: "$22g0QA321"
     Cuando el ingresa al menu de crear clientes
     Entonces el podra observar el catalogo de servicio
-
-
