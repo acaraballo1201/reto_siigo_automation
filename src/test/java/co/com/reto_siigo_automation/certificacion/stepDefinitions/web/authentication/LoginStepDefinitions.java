@@ -4,6 +4,7 @@ import co.com.reto_siigo_automation.certificacion.exceptions.MenuSiigoNoVisualiz
 import co.com.reto_siigo_automation.certificacion.interactions.AutenticacionPoo;
 import co.com.reto_siigo_automation.certificacion.questions.ElementoEsperado;
 
+import co.com.reto_siigo_automation.certificacion.questions.VerificarMensaje;
 import co.com.reto_siigo_automation.certificacion.tasks.IngresarAMenu;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
@@ -22,14 +23,24 @@ public class LoginStepDefinitions {
         theActorCalled(nombreActor).attemptsTo(AutenticacionPoo.enSiigo(usuario, clave));
     }
 
-    @Dado("el ingresa al menu de crear clientes")
+    @Dado("el ingresa al menu crear clientes")
     public void menuCrear() {
+        theActorInTheSpotlight().attemptsTo(IngresarAMenu.deClientes());
+    }
+    @Dado("el ingresa al menu crear clientes para terceros")
+    public void entrarACrearTercero() {
         theActorInTheSpotlight().attemptsTo(IngresarAMenu.deClientes());
     }
 
     @Entonces("el podra observar el catalogo de servicio")
     public void verificarVisibilidadProductos() {
         theActorInTheSpotlight().should(seeThat(ElementoEsperado.esVisible(MENSAJE_CREAR_TERCERO))
+                .orComplainWith(MenuSiigoNoVisualizadoException.class, MENU_VALIDACION_NO_ENCONTRADO));
+    }
+
+    @Entonces("el podra observar el {string}")
+    public void verificarMensajeEnPantalla(String mensajeEnPantalla) {
+        theActorInTheSpotlight().should(seeThat(VerificarMensaje.esVisible(mensajeEnPantalla))
                 .orComplainWith(MenuSiigoNoVisualizadoException.class, MENU_VALIDACION_NO_ENCONTRADO));
     }
 }
