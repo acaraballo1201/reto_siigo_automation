@@ -2,7 +2,7 @@
 
 @Login
 
- Característica: :  Hu login
+ Característica: Hu login
   Como usuario de la aplicacion web SIIGO
   Quiero realizar el logueo en el sitio
   Para verificar el funcionamiento de sus componentes
