@@ -5,6 +5,7 @@ import co.com.reto_siigo_automation.certificacion.interactions.AutenticacionPoo;
 import co.com.reto_siigo_automation.certificacion.questions.ElementoEsperado;
 
 import co.com.reto_siigo_automation.certificacion.questions.VerificarMensaje;
+import co.com.reto_siigo_automation.certificacion.tasks.CrearTercero;
 import co.com.reto_siigo_automation.certificacion.tasks.IngresarAMenu;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
@@ -30,6 +31,7 @@ public class LoginStepDefinitions {
     @Dado("el ingresa al menu crear clientes para terceros")
     public void entrarACrearTercero() {
         theActorInTheSpotlight().attemptsTo(IngresarAMenu.deClientes());
+        theActorInTheSpotlight().attemptsTo(CrearTercero.enSiigo());
     }
 
     @Entonces("el podra observar el catalogo de servicio")

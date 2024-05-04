@@ -1,4 +1,4 @@
-package co.com.reto_siigo_automation.certificacion.utils.web;
+package co.com.reto_siigo_automation.certificacion.utils.web.enums;
 
 public enum EnumDomBtnCrear {
 

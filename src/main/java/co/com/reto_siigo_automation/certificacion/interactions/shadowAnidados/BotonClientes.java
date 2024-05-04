@@ -8,10 +8,9 @@ import net.serenitybdd.screenplay.Task;
 import net.thucydides.core.annotations.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
-import org.openqa.selenium.WebDriver;
 
-import static co.com.reto_siigo_automation.certificacion.utils.web.EnumDomBtnClientes.SEARCH_CONTEXT_BTN_CLIENTES;
-import static co.com.reto_siigo_automation.certificacion.utils.web.EnumDomBtnClientes.SHADOW_1_BTN_CLIENTES;
+import static co.com.reto_siigo_automation.certificacion.utils.web.enums.EnumDomBtnClientes.SEARCH_CONTEXT_BTN_CLIENTES;
+import static co.com.reto_siigo_automation.certificacion.utils.web.enums.EnumDomBtnClientes.SHADOW_1_BTN_CLIENTES;
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
 public class BotonClientes implements Interaction {
@@ -27,7 +26,5 @@ public class BotonClientes implements Interaction {
         Thread.sleep(1000);
         shadow.findElement(By.cssSelector(SHADOW_1_BTN_CLIENTES.toString())).click();
         Thread.sleep(5000);
-
-
     }
 }
