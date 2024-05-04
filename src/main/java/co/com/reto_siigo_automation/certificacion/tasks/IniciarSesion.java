@@ -3,6 +3,7 @@ package co.com.reto_siigo_automation.certificacion.tasks;
 import co.com.reto_siigo_automation.certificacion.interactions.esperas.Esperar;
 import co.com.reto_siigo_automation.certificacion.interactions.esperas.EsperarElemento;
 import co.com.reto_siigo_automation.certificacion.interactions.shadowAnidados.ClickCrear;
+import co.com.reto_siigo_automation.certificacion.utils.web.RandomClassExample1;
 import lombok.SneakyThrows;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;

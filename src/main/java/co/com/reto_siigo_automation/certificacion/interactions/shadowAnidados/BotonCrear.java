@@ -9,7 +9,7 @@ import net.thucydides.core.annotations.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 
-import static co.com.reto_siigo_automation.certificacion.utils.web.EnumDomBtnCrear.*;
+import static co.com.reto_siigo_automation.certificacion.utils.web.enums.EnumDomBtnCrear.*;
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
 public class BotonCrear implements Interaction {
